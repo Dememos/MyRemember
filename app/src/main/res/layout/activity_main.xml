@@ -22,6 +22,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
             android:background="?attr/colorPrimary"/>
 
 
@@ -33,6 +34,7 @@
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="6dp"
             app:tabGravity="fill"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
             app:tabSelectedTextColor="@android:color/white"/>
 
         </android.support.design.widget.AppBarLayout>
@@ -42,6 +44,16 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/fab"
+            android:src="@mipmap/ic_plus"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            />
 
 
     </android.support.design.widget.CoordinatorLayout>
@@ -55,5 +67,7 @@
         android:layout_gravity="start"
         app:menu="@menu/menu_navigation"
         app:headerLayout="@layout/navigation_header"/>
+
+
 
 </android.support.v4.widget.DrawerLayout>
