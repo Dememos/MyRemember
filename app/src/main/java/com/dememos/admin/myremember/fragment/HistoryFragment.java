@@ -4,7 +4,6 @@ package com.dememos.admin.myremember.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +11,9 @@ import android.view.ViewGroup;
 import com.dememos.admin.myremember.R;
 
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends AbstractTabFragment {
     private static final int LAYOUT = R.layout.fragment_example;
 
-    private static String title;
-    private Context context;
-
-    private View view;
 
     public static HistoryFragment getInstance(Context context){
         Bundle args = new Bundle();
@@ -43,7 +38,5 @@ public class HistoryFragment extends Fragment {
         this.context = context;
     }
 
-    public static void setTitle(String title) {
-        HistoryFragment.title = title;
-    }
+
 }
