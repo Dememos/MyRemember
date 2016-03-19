@@ -20,13 +20,13 @@ import java.util.List;
 
 public class HistoryFragment extends AbstractTabFragment {
     private static final int LAYOUT = R.layout.fragment_history;
+    private List<RemindDTO> data;
 
-
-    public static HistoryFragment getInstance(Context context){
+    public static HistoryFragment getInstance(Context context, List<RemindDTO> data){
         Bundle args = new Bundle();
         HistoryFragment fragment = new HistoryFragment();
         fragment.setArguments(args);
-
+        fragment.setData(data);
         fragment.setContext(context);
         fragment.setTitle(context.getString(R.string.tab_item_history));
         return fragment;
@@ -64,4 +64,7 @@ public class HistoryFragment extends AbstractTabFragment {
     }
 
 
+    public void setData(List<RemindDTO> data) {
+        this.data = data;
+    }
 }
