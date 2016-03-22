@@ -13,6 +13,7 @@ import com.dememos.admin.myremember.fragment.HistoryFragment;
 import com.dememos.admin.myremember.fragment.IdeasFragment;
 import com.dememos.admin.myremember.fragment.TodoFragment;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,10 +23,13 @@ public class TabsFragmentAdapter extends FragmentPagerAdapter{
     private Map<Integer, AbstractTabFragment> tabs;
     private Context context;
     private List<RemindDTO> data;
+    private HistoryFragment historyFragment;
 
     public TabsFragmentAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.context = context;
+        this.data = new ArrayList<>();
+
         initTabMap(context);
 
     }
@@ -50,7 +54,7 @@ public class TabsFragmentAdapter extends FragmentPagerAdapter{
 
     private void initTabMap(Context context) {
         tabs = new HashMap<>();
-        HistoryFragment historyFragment = HistoryFragment.getInstance(context, data);
+        historyFragment = HistoryFragment.getInstance(context, data);
         tabs.put(0, historyFragment);
         tabs.put(1, IdeasFragment.getInstance(context));
         tabs.put(2, TodoFragment.getInstance(context));
@@ -60,5 +64,6 @@ public class TabsFragmentAdapter extends FragmentPagerAdapter{
 
     public void setData(List<RemindDTO> data) {
         this.data = data;
+        historyFragment.refreshData(data);
     }
 }

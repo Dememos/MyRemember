@@ -8,7 +8,7 @@ public class Constants {
     public static final int TAB_THREE = 2;
 
     public static class Url {
-        private static final String HOST = "http://10.0.0.13:8080/";
+        private static final String HOST = "http://127.0.0.1:8080/";
         public static final String GET_REMIND_ITEM = HOST + "remind/get";
 
     }

@@ -14,13 +14,13 @@ import com.dememos.admin.myremember.R;
 import com.dememos.admin.myremember.adapter.RemindListAdapter;
 import com.dememos.admin.myremember.dto.RemindDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class HistoryFragment extends AbstractTabFragment {
     private static final int LAYOUT = R.layout.fragment_history;
     private List<RemindDTO> data;
+    private RemindListAdapter adapter;
 
     public static HistoryFragment getInstance(Context context, List<RemindDTO> data){
         Bundle args = new Bundle();
@@ -41,23 +41,13 @@ public class HistoryFragment extends AbstractTabFragment {
 
         RecyclerView cv = (RecyclerView) view.findViewById(R.id.recycleView);
         cv.setLayoutManager(new LinearLayoutManager(context));
-        cv.setAdapter(new RemindListAdapter(createMockData()));
+        adapter = new RemindListAdapter(data);
+        cv.setAdapter(adapter);
         return view;
 
     }
 
-    private List<RemindDTO> createMockData() {
-        List<RemindDTO> data = new ArrayList<>();
-        data.add(new RemindDTO("Item 1"));
-        data.add(new RemindDTO("Item 2"));
-        data.add(new RemindDTO("Item 3"));
-        data.add(new RemindDTO("Item 4"));
-        data.add(new RemindDTO("Item 5"));
-        data.add(new RemindDTO("Item 6"));
-        data.add(new RemindDTO("Item 7"));
 
-        return data;
-    }
 
     public void setContext(Context context) {
         this.context = context;
@@ -66,5 +56,12 @@ public class HistoryFragment extends AbstractTabFragment {
 
     public void setData(List<RemindDTO> data) {
         this.data = data;
+    }
+
+    public void refreshData(List<RemindDTO> data){
+        adapter.setData(data);
+        adapter.notifyDataSetChanged();
+
+
     }
 }
