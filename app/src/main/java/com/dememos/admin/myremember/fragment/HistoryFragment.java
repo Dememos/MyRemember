@@ -4,8 +4,12 @@ package com.dememos.admin.myremember.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+<<<<<<< HEAD
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+=======
+import android.support.v4.app.Fragment;
+>>>>>>> parent of dcd5b09... del error
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +20,21 @@ import com.dememos.admin.myremember.dto.RemindDTO;
 
 import java.util.List;
 
+<<<<<<< HEAD
 
 public class HistoryFragment extends AbstractTabFragment {
     private static final int LAYOUT = R.layout.fragment_history;
     private List<RemindDTO> data;
     private RemindListAdapter adapter;
+=======
+public class HistoryFragment extends Fragment {
+    private static final int LAYOUT = R.layout.fragment_example;
+
+    private static String title;
+    private Context context;
+
+    private View view;
+>>>>>>> parent of dcd5b09... del error
 
     public static HistoryFragment getInstance(Context context, List<RemindDTO> data){
         Bundle args = new Bundle();
@@ -53,6 +67,7 @@ public class HistoryFragment extends AbstractTabFragment {
         this.context = context;
     }
 
+<<<<<<< HEAD
 
     public void setData(List<RemindDTO> data) {
         this.data = data;
@@ -63,5 +78,9 @@ public class HistoryFragment extends AbstractTabFragment {
         adapter.notifyDataSetChanged();
 
 
+=======
+    public static void setTitle(String title) {
+        HistoryFragment.title = title;
+>>>>>>> parent of dcd5b09... del error
     }
 }

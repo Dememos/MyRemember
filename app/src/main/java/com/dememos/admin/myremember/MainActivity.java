@@ -66,7 +66,11 @@ public class MainActivity extends AppCompatActivity {
     private void initTabs() {
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
+<<<<<<< HEAD
         adapter = new TabsFragmentAdapter(this,getSupportFragmentManager());
+=======
+        TabsFragmentAdapter adapter = new TabsFragmentAdapter(getSupportFragmentManager());
+>>>>>>> parent of dcd5b09... del error
         viewPager.setAdapter(adapter);
 
         new RemindMeTask().execute();
