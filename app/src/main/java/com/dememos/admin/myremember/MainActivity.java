@@ -1,6 +1,5 @@
 package com.dememos.admin.myremember;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -12,13 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.dememos.admin.myremember.adapter.TabsFragmentAdapter;
-import com.dememos.admin.myremember.dto.RemindDTO;
-
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -66,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
     private void initTabs() {
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
-<<<<<<< HEAD
+
         adapter = new TabsFragmentAdapter(this,getSupportFragmentManager());
-=======
-        TabsFragmentAdapter adapter = new TabsFragmentAdapter(getSupportFragmentManager());
->>>>>>> parent of dcd5b09... del error
+
+        //TabsFragmentAdapter adapter = new TabsFragmentAdapter(this,getSupportFragmentManager());
+
         viewPager.setAdapter(adapter);
 
-        new RemindMeTask().execute();
+        //new RemindMeTask().execute();
 
         TabLayout tablayout = (TabLayout)findViewById(R.id.tablayout);
         tablayout.setupWithViewPager(viewPager);
@@ -110,22 +102,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private class RemindMeTask extends AsyncTask<Void, Void, RemindDTO> {
 
-
-        @Override
-        protected RemindDTO doInBackground(Void... params) {
-            RestTemplate template = new RestTemplate();
-            template.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            return template.getForObject(Constants.Url.GET_REMIND_ITEM, RemindDTO.class);
-        }
-
-
-        @Override
-        protected void onPostExecute(RemindDTO remindDTO) {
-            List<RemindDTO> list = new ArrayList<>();
-            list.add(remindDTO);
-            adapter.setData(list);
-        }
-    }
 }

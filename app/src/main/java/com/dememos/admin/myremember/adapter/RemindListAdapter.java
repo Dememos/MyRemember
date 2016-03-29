@@ -52,8 +52,4 @@ public class RemindListAdapter extends RecyclerView.Adapter<RemindListAdapter.Re
     public int getItemCount() {
         return data.size();
     }
-
-    public void setData(List<RemindDTO> data) {
-        this.data = data;
-    }
 }
